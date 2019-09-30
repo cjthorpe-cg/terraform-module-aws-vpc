@@ -13,7 +13,7 @@ resource "aws_subnet" "public" {
   count             = length(var.public_subnet_cidr)
   vpc_id            = aws_vpc.workspace.id
   cidr_block        = var.public_subnet_cidr[count.index]
-  availability_zone = join(", ", data.aws_availability_zones.available.names)
+  availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = {
     Name  = "${var.prefix}-${var.workspace}-public-${count.index}"
@@ -31,7 +31,7 @@ resource "aws_subnet" "private" {
   count             = length(var.private_subnet_cidr)
   vpc_id            = aws_vpc.workspace.id
   cidr_block        = var.private_subnet_cidr[count.index]
-  availability_zone = join(", ", data.aws_availability_zones.available.names)
+  availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = {
     Name  = "${var.prefix}-${var.workspace}-private-${count.index}"
