@@ -31,7 +31,7 @@ variable "public_subnet_cidr" {
 variable "region" {
   default     = ""
   description = "The region to build infrastructure within."
-  type        = list
+  type        = string
 }
 
 variable "vpc_cidr" {
