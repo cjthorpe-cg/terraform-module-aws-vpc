@@ -1,5 +1,7 @@
 profile = "thorpecorp"
 
+region = "eu-west-1"
+
 workspace = "production"
 
 prefix = "vpc"
