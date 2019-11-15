@@ -1,6 +1,6 @@
 provider "aws" {
-  profile = var.profile
-  region  = var.region
-
-  version = ">= 2.28.1"
+  assume_role {
+    role_arn     = "arn:aws:iam::${var.aws_account_id}:role/OrganizationEngineerAccessRole"
+    session_name = "OrganizationEngineerAccessRole"
+  }
 }

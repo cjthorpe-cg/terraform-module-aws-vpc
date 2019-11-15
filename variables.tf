@@ -1,12 +1,10 @@
+variable "aws_account_id" {
+  default = "502506701857"
+}
+
 variable "owner" {
   default     = ""
   description = "Identifying name of the resource owner."
-  type        = string
-}
-
-variable "prefix" {
-  default     = ""
-  description = "The naming prefix to use."
   type        = string
 }
 

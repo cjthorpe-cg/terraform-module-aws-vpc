@@ -2,7 +2,7 @@ resource "aws_vpc" "workspace" {
   cidr_block = var.vpc_cidr
 
   tags = {
-    Name  = "${var.prefix}-${var.workspace}-vpc"
+    Name  = "${var.workspace}-vpc"
     Owner = var.owner
   }
 }
@@ -16,7 +16,7 @@ resource "aws_subnet" "public" {
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = {
-    Name  = "${var.prefix}-${var.workspace}-public-${count.index}"
+    Name  = "${var.workspace}-public-${count.index}"
     Owner = var.owner
   }
 
@@ -34,7 +34,7 @@ resource "aws_subnet" "private" {
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = {
-    Name  = "${var.prefix}-${var.workspace}-private-${count.index}"
+    Name  = "${var.workspace}-private-${count.index}"
     Owner = var.owner
   }
 
@@ -51,7 +51,7 @@ resource "aws_internet_gateway" "public" {
   vpc_id = aws_vpc.workspace.id
 
   tags = {
-    Name  = "${var.prefix}-${var.workspace}-igw"
+    Name  = "${var.workspace}-igw"
     Owner = var.owner
   }
 }
@@ -89,7 +89,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    Name  = "${var.prefix}-${var.workspace}-public-${count.index}"
+    Name  = "${var.workspace}-public-${count.index}"
     Owner = var.owner
   }
 }
@@ -114,7 +114,7 @@ resource "aws_route_table" "private" {
   }
 
   tags = {
-    Name  = "${var.prefix}-${var.workspace}-private-${count.index}"
+    Name  = "${var.workspace}-private-${count.index}"
     Owner = var.owner
   }
 }

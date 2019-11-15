@@ -14,13 +14,12 @@ Also creates the required public/private route tables and route associations.
 
 ```
 module "vpc" {
-  source              = "github.com/cthorpe-cg/terraform-module-aws-vpc"
-  profile             = "${var.profile}"
-  workspace           = "${var.workspace}"
-  prefix              = "${var.prefix}"
   owner               = "${var.owner}"
-  vpc_cidr            = "${var.vpc_cidr}"
-  public_subnet_cidr  = "${var.public_subnet_cidr}"
   private_subnet_cidr = "${var.private_subnet_cidr}"
+  profile             = "${var.profile}"
+  public_subnet_cidr  = "${var.public_subnet_cidr}"
+  source              = "github.com/cthorpe-cg/terraform-module-aws-vpc"
+  vpc_cidr            = "${var.vpc_cidr}"
+  workspace           = "${var.workspace}"
 }
 ```
